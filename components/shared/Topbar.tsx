@@ -19,7 +19,7 @@ export default function Topbar() {
           </p>
         </Link>
         <div className="flex items-center gap-1">
-          <div className="bolck md:hidden">
+          <div className="bolck ">
             <SignedOut>
               <SignInButton />
             </SignedOut>
