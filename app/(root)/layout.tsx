@@ -35,7 +35,7 @@ export default function RootLayout({
           </header> */}
 
           <Topbar />
-          <main>
+          <main className="flex flex-row">
             <LeftSidebar />
             <section className="main-container">
               <div className="w-full max-w-4xl">{children}</div>
