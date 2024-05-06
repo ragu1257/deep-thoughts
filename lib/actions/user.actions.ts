@@ -8,7 +8,7 @@ export async function updateUser(
 ): Promise<void> {
   connectToDB()
   try{
-    await User.findOneAndUpdate(
+     await User.findOneAndUpdate(
       {id: userId},
       {username: username.toLowerCase(),
         name,
@@ -18,10 +18,23 @@ export async function updateUser(
       },
       {upsert: true}
     )
+    
   }
   catch(err){
     console.log('Error connecting to DB', err);
   }
 
   
+}
+
+export async function fetchUser(userId: string): Promise<any> {
+  connectToDB()
+  try{
+    const user = await User.findOne({id: userId
+    })
+    return user
+  }
+  catch(err){
+    console.log('Error connecting to DB', err);
+  }
 }
