@@ -18,6 +18,10 @@ const threadSchema = new mongoose.Schema({
   parentId: {
     type: String
   },
+  isLiked: {
+    type: Boolean,
+    default: false
+  },
   children: [
     {
       type: mongoose.Schema.Types.ObjectId,

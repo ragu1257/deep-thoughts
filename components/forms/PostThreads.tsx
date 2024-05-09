@@ -1,9 +1,11 @@
 "use client"
+import { useRouter } from 'next/navigation'
 import { createThread } from "@/lib/actions/thread.actions"
 import { useState } from "react"
 
-export default function PostThreads({ userInfoID, userInfoName }: Readonly<{ userInfoID: any, userInfoName: String }>) {
+export default function PostThreads({ userInfoID, userInfoName }: Readonly<{ userInfoID: any, userInfoName: string }>) {
     const [textareas, setTextareas] = useState("")
+    const router = useRouter()
     const handleSubmit = async (e: any) => {
       e.preventDefault()
       await createThread({
@@ -11,7 +13,7 @@ export default function PostThreads({ userInfoID, userInfoName }: Readonly<{ use
         author: userInfoID,
         communityId: null
       })
-      
+      router.push("/")
     }
   return (
     <>

@@ -12,7 +12,6 @@ import Image from "next/image";
 import { updateUser } from "@/lib/actions/user.actions";
 
 export default function Topbar({user}: {readonly user: any}) {
-  console.log("this is current user info",user);
   const submitInfo = async () => {
     
     await updateUser({
