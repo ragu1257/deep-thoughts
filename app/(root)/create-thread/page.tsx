@@ -1,12 +1,28 @@
 import PostThreads from "@/components/forms/PostThreads";
-import { fetchUser } from "@/lib/actions/user.actions";
+import { fetchUser, updateUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs/server";
 
 export default async function Page() {
   const user = await currentUser();
-  if(!user) return null
 
-  const userInfo = await fetchUser(user.id)
+
+
+  if(!user) return null
+  
+  let userInfo = await fetchUser(user.id)
+console.log("userInfo", userInfo);
+
+  if(userInfo === null){
+  await updateUser({
+    userId: user?.id ?? "",
+    username: user?.username ?? "",
+    name: user?.firstName ?? "",
+    email: user?.emailAddresses[0].emailAddress ?? "",
+    phoneNumber: user?.phoneNumbers[0].phoneNumber ?? "",
+  });
+   userInfo = await fetchUser(user.id)
+
+  }
   
   return (
     <div>

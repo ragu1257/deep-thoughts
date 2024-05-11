@@ -1,5 +1,6 @@
 "use server"
 
+import Thread from "../models/thread.model"
 import User from "../models/user.model"
 import { connectToDB } from "../mongoose"
 
@@ -36,5 +37,17 @@ export async function fetchUser(userId: string): Promise<any> {
   }
   catch(err){
     console.log('Error connecting to DB', err);
+  }
+}
+
+export async function fetchPosts(userId: string) {
+  connectToDB();
+  try {
+    const allThreads = await User.findOne({ id: userId })
+      .populate({ path: "threads", model: Thread, select: "text" })
+    ;
+    return allThreads;
+  } catch (err) {
+    console.log("Error connecting to DB", err);
   }
 }

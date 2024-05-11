@@ -51,3 +51,4 @@ export async function updateIsLiked(threadId: any, isLikedClicked: boolean) {
     console.log("Error connecting to DB", err);
   }
 }
+
