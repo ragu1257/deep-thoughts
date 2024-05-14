@@ -7,7 +7,7 @@ const Page = async () => {
   if(!user) return <p className="text-light-1">Please Login to view profile</p>
   return (
     <div>
-      <h1 className="head-text">Profile</h1>
+
       <ProfileHeader email={user?.emailAddresses[0].emailAddress ?? ""} name={user?.firstName ?? ""}  userName={user?.username ?? ""} id={user?.id ?? ""}/>
     </div>
   );

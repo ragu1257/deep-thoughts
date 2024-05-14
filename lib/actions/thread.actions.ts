@@ -56,10 +56,10 @@ export async function fetchPostsById(userId: string) {
 export async function deleteThread(threadId: any, userId: any) {
   connectToDB();
   try {    
-    await Thread.findByIdAndDelete(threadId);
+    await Thread.findByIdAndDelete(threadId).exec();
     await User.findByIdAndUpdate(userId, {
       $pull: { threads: threadId },
-    });
+    }).exec();
   } catch (err) {
     console.log("Error connecting to DB", err);
   }

@@ -10,7 +10,7 @@ export default async function Page() {
 
   return (
     <div>
-      <h1 className="head-text">Find all the Users</h1>
+      <h1 className="head-text">Our current users</h1>
       <div>
         {allUsers.map((user: any) => (
         <article className="flex w-full flex-col rounded-xl bg-dark-2 p-7 mt-3" key={user.id}>
@@ -23,13 +23,13 @@ export default async function Page() {
               <div className="flex flex-col gap-1">
                 <p className="text-gray-1">
                   @ {user.username}</p>
-                  <p className="mt-2 text-small-regular text-light-2">Thread(s) count: {user.threads.length}</p>
+                  <p className="mt-2 text-small-regular text-light-2">Thought(s) count: {user.threads.length}</p>
               </div>
             </div>
            
           </div>
           <div className="text-small-regular ">
-              <p className="text-small-regular text-light-2">User since</p>
+              <p className="text-small-regular text-light-2">Sharing thoughts since</p>
               <p className="text-gray-1">{new Date(user.createdAtUser ).toLocaleDateString("en-US", {
       weekday: "long",
       year: "numeric",

@@ -20,9 +20,9 @@ export default function PostThreads({ userInfoID, userInfoName }: Readonly<{ use
     <h1 className="head-text mb-4">Post threads for {userInfoName}</h1>
     <form className="flex flex-col justify-start gap-10" onSubmit={handleSubmit}>
 
-          <textarea value={textareas} onChange={(e)=>setTextareas(e.target.value)} />
+          <textarea className='leftsidebar_link'  value={textareas} onChange={(e)=>setTextareas(e.target.value)} />
 
-        <input type="submit" value="Post Thread" className="bg-primary-500 p-2 text-light-1"/>
+        <input type="submit" value="Post Thread" className="bg-primary-500 leftsidebar_link justify-center cursor-pointer p-2 text-light-1"/>
       </form>
     </>
   )

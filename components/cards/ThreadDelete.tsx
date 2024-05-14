@@ -2,6 +2,7 @@
 
 import { deleteThread } from "@/lib/actions/thread.actions";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function ThreadImage({
   threadId,
@@ -9,10 +10,11 @@ export default function ThreadImage({
 }: {
   readonly threadId: string, readonly userId: string;
 }) {
+  const router = useRouter()
 
   const submitLike = async () => {
     await deleteThread(threadId, userId);
-
+    router.push("/")
   };
   return (
     <Image

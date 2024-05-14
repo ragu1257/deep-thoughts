@@ -37,14 +37,13 @@ const ProfileHeader = async ({ email, name, userName,id }: Props) => {
             </TabsTrigger>
           </TabsList>
           <TabsContent value="threads" className="tab-content text-light-1">
-          {posts ? <ThreadsTab posts={posts.threads} userId={posts._id}/> : (
+          {posts.threads.length >0 ? <ThreadsTab posts={posts.threads} userId={posts._id}/> : (
             <div>No threads</div>
           
           )}  
           </TabsContent>
           <TabsContent value="settings" className="tab-content text-light-1">
-            <h3>Settings</h3>
-            <p>Settings are the best!</p>
+            <p>Implementation going on...</p>
           </TabsContent>
 
         </Tabs>
