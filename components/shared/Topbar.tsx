@@ -8,7 +8,6 @@ import {
 } from "@clerk/nextjs";
 import Link from "next/link";
 import Image from "next/image";
-import { updateUser } from "@/lib/actions/user.actions";
 
 export default function Topbar({user}: {readonly user: any}) {
 
