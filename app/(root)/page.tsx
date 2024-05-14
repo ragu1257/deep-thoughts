@@ -13,7 +13,6 @@ interface Thread {
 
 export default async function Home() {
   const allThreads = await fetchPosts();
-console.log(allThreads);
 
 
   return (
@@ -21,7 +20,7 @@ console.log(allThreads);
       <h1 className="head-text text-left">Home Page</h1>
       <section className="mt-9 flex flex-col gap-0">
         {allThreads?.length === 0 ? (
-          <p>No threads found</p>
+          <p className="text-light-1">No threads found</p>
         ) : (
           allThreads?.map((thread: Thread) => (
             <ThreadCard key={thread._id} comment_id={thread._id} isLiked={thread.isLiked} text={thread.text} author = {thread.author}/>

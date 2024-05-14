@@ -5,9 +5,10 @@ import User from "../models/user.model"
 import { connectToDB } from "../mongoose"
 
 export async function updateUser(
-  {userId, username, name, email, phoneNumber}: {userId: string, username: string, name: string, email: string, phoneNumber: string}
+  {userId, username, name, email, phoneNumber, createdAtUser}: {userId: string, username: string, name: string, email: string, phoneNumber: string, createdAtUser: any}
 ): Promise<void> {
   connectToDB()
+  
   try{
      await User.findOneAndUpdate(
       {id: userId},
@@ -15,7 +16,8 @@ export async function updateUser(
         name,
         email,
         onboarded: true,
-        phoneNumber
+        phoneNumber,
+        createdAtUser
       },
       {upsert: true}
     )
@@ -34,6 +36,17 @@ export async function fetchUser(userId: string): Promise<any> {
     const user = await User.findOne({id: userId
     })
     return user
+  }
+  catch(err){
+    console.log('Error connecting to DB', err);
+  }
+}
+
+export async function getAllUsers(): Promise<any> {
+  connectToDB()
+  try{
+    const allUsers = await User.find().select('name username threads createdAtUser')
+    return allUsers
   }
   catch(err){
     console.log('Error connecting to DB', err);

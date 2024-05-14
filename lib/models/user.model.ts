@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema({
   PhoneNumber: {type: String, required: true},
   email: {type: String, required: true, unique: true},
   username: {type: String, required: true, unique: true},
+  createdAtUser: {type: Date, required: true},
   threads : [
     {
       type: mongoose.Schema.Types.ObjectId,

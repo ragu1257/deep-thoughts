@@ -5,12 +5,10 @@ import { currentUser } from "@clerk/nextjs/server";
 export default async function Page() {
   const user = await currentUser();
 
-
-
   if(!user) return <p className="text-light-1">Please Login to create thread</p>
   
   let userInfo = await fetchUser(user.id)
-
+  
   if(userInfo === null){
   await updateUser({
     userId: user?.id ?? "",
@@ -18,6 +16,12 @@ export default async function Page() {
     name: user?.firstName ?? "",
     email: user?.emailAddresses[0].emailAddress ?? "",
     phoneNumber: user?.phoneNumbers[0].phoneNumber ?? "",
+    createdAtUser: new Date(user.createdAt ).toLocaleDateString("en-US", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
   });
    userInfo = await fetchUser(user.id)
 

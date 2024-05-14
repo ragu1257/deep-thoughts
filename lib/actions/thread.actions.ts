@@ -40,6 +40,31 @@ export async function fetchPosts() {
   }
 }
 
+export async function fetchPostsById(userId: string) {
+  connectToDB();
+  try {
+    const allThreads = await User.findOne({ id: userId })
+    .select("threads")
+      .populate({ path: "threads", model: Thread, select: "text createdAt" })
+    return allThreads;
+  }
+  catch (err) {
+    console.log("Error connecting to DB", err);
+  }
+}
+
+export async function deleteThread(threadId: any, userId: any) {
+  connectToDB();
+  try {    
+    await Thread.findByIdAndDelete(threadId);
+    await User.findByIdAndUpdate(userId, {
+      $pull: { threads: threadId },
+    });
+  } catch (err) {
+    console.log("Error connecting to DB", err);
+  }
+}
+
 export async function updateIsLiked(threadId: any, isLikedClicked: boolean) {
   connectToDB();
   try {

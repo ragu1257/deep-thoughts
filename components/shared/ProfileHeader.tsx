@@ -3,6 +3,7 @@ import "./ProfileHeader.scss";
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ThreadsTab from "./ThreadsTab";
+import { fetchPostsById } from "@/lib/actions/thread.actions";
 
 interface Props {
   id: string;
@@ -11,7 +12,10 @@ interface Props {
   userName: string;
 }
 
-const ProfileHeader = ({ email, name, userName,id }: Props) => {
+const ProfileHeader = async ({ email, name, userName,id }: Props) => {
+  
+  const posts =  await fetchPostsById(id);
+  
 
   return (
     <div className="flex w-full flex-col justify-start">
@@ -33,7 +37,10 @@ const ProfileHeader = ({ email, name, userName,id }: Props) => {
             </TabsTrigger>
           </TabsList>
           <TabsContent value="threads" className="tab-content text-light-1">
-            <ThreadsTab id={id} />
+          {posts ? <ThreadsTab posts={posts.threads} userId={posts._id}/> : (
+            <div>No threads</div>
+          
+          )}  
           </TabsContent>
           <TabsContent value="settings" className="tab-content text-light-1">
             <h3>Settings</h3>

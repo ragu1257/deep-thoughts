@@ -10,14 +10,6 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { updateUser } from "@/lib/actions/user.actions";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
 
 export default function Topbar({user}: {readonly user: any}) {
   const submitInfo = async () => {
@@ -28,6 +20,12 @@ export default function Topbar({user}: {readonly user: any}) {
       name: user.firstName,
       email: user.emailAddresses[0].emailAddress,
       phoneNumber: user.phoneNumbers[0].phoneNumber,
+      createdAtUser: new Date(user.createdAt ).toLocaleDateString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
     });
   }
   return (

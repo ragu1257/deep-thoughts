@@ -17,12 +17,12 @@ export default function PostThreads({ userInfoID, userInfoName }: Readonly<{ use
     }
   return (
     <>
-    <h1 className="head-text">Post threads for {userInfoName} {userInfoID}</h1>
+    <h1 className="head-text mb-4">Post threads for {userInfoName}</h1>
     <form className="flex flex-col justify-start gap-10" onSubmit={handleSubmit}>
 
           <textarea value={textareas} onChange={(e)=>setTextareas(e.target.value)} />
 
-        <input type="submit" value="Post Thread" className="bg-primary-500"/>
+        <input type="submit" value="Post Thread" className="bg-primary-500 p-2 text-light-1"/>
       </form>
     </>
   )
