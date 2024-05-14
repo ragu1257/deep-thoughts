@@ -32,10 +32,13 @@ export default function Topbar({user}: {readonly user: any}) {
 
       <nav className="topbar">
         <Link href="/" className="flex items-center gap-4">
-          <Image src="/assets/logo.svg" alt="logo" width={28} height={28} />
-          <p className="text-heading3-bold text-light-1 max-xs:hidden">
-            Deep Thoughts
-          </p>
+          <Image src="/assets/deep-thoughts-logo.svg" alt="logo"
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{ width: '20%', height: 'auto' }}
+          />
+
         </Link>
         <div className="flex items-center gap-1">
           {/* <div>
@@ -59,7 +62,7 @@ export default function Topbar({user}: {readonly user: any}) {
                     height={24}
                     className="mr-2"
                   />
-                  Logout
+                 <p className="pr-2">Logout</p> 
                 </div>
               </SignOutButton>
             </SignedIn>
