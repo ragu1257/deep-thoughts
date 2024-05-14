@@ -14,7 +14,6 @@ interface Thread {
 export default async function Home() {
   const allThreads = await fetchPosts();
 
-
   return (
     <>
       <h1 className="head-text text-left">All Thoughts</h1>

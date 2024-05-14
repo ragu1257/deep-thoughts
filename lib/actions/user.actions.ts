@@ -5,7 +5,7 @@ import User from "../models/user.model"
 import { connectToDB } from "../mongoose"
 
 export async function updateUser(
-  {userId, username, name, email , createdAtUser}: {userId: string, username: string | null, name: string, email: string, createdAtUser: any}
+  {userId, username, name, email , createdAtUser}: {userId: string, username: string , name: string | null, email: string, createdAtUser: any}
 ): Promise<void> {
   connectToDB()
   

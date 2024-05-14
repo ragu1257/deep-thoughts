@@ -12,8 +12,8 @@ export default async function Page() {
   if(userInfo === null){
       await updateUser({
         userId: user.id,
-        username: user.username,
-        name: user.firstName,
+        username: user.username ?? "",
+        name: user.firstName ?? "",
         email: user.emailAddresses[0] ? user.emailAddresses[0].emailAddress : "",
         createdAtUser: new Date(user.createdAt ).toLocaleDateString("en-US", {
           weekday: "long",
