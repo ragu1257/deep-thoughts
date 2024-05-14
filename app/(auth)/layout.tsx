@@ -6,8 +6,8 @@ import "../globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Thread app',
-  description: 'Thread app',
+  title: 'Deep Thoughts',
+  description: 'Express your thoughts and feelings with Deep Thoughts',
 };
 
 export default function RootLayout({children}: {readonly children: React.ReactNode}) {

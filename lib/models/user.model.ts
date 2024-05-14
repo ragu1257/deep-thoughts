@@ -3,8 +3,7 @@ import mongoose from "mongoose";
 const userSchema = new mongoose.Schema({
   id: {type: String, required: true},
   name: {type: String, required: true},
-  PhoneNumber: {type: String, required: true},
-  email: {type: String, required: true, unique: true},
+  email: {type: String, unique: false},
   username: {type: String, required: true, unique: true},
   createdAtUser: {type: Date, required: true},
   threads : [

@@ -10,22 +10,22 @@ export default async function Page() {
   let userInfo = await fetchUser(user.id)
   
   if(userInfo === null){
-  await updateUser({
-    userId: user?.id ?? "",
-    username: user?.username ?? "",
-    name: user?.firstName ?? "",
-    email: user?.emailAddresses[0].emailAddress ?? "",
-    phoneNumber: user?.phoneNumbers[0].phoneNumber ?? "",
-    createdAtUser: new Date(user.createdAt ).toLocaleDateString("en-US", {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    })
-  });
+    await updateUser({
+      userId: user.id,
+      username: user.username,
+      name: user.firstName,
+      email: user.emailAddresses[0] ? user.emailAddresses[0].emailAddress : false,
+      createdAtUser: new Date(user.createdAt ).toLocaleDateString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    });
    userInfo = await fetchUser(user.id)
 
   }
+  
   
   return (
     <div>

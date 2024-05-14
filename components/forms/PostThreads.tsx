@@ -17,7 +17,7 @@ export default function PostThreads({ userInfoID, userInfoName }: Readonly<{ use
     }
   return (
     <>
-    <h1 className="head-text mb-4">Post threads for {userInfoName}</h1>
+    <h1 className="head-text mb-4">Posting thoughts for {userInfoName ?? "you"}</h1>
     <form className="flex flex-col justify-start gap-10" onSubmit={handleSubmit}>
 
           <textarea className='leftsidebar_link'  value={textareas} onChange={(e)=>setTextareas(e.target.value)} />

@@ -29,7 +29,7 @@ const ProfileHeader = async ({ email, name, userName,id }: Props) => {
           <TabsList className="tab">
             <TabsTrigger value="threads" className="tab-trigger">
               <Image src="/assets/tag.svg" width={24} height={24} alt="threads-icon"/>
-              Threads
+              Thoughts
             </TabsTrigger>
             <TabsTrigger value="settings" className="tab-trigger">
             <Image src="/assets/profile.svg" width={24} height={24} alt="threads-icon"/>
@@ -37,8 +37,8 @@ const ProfileHeader = async ({ email, name, userName,id }: Props) => {
             </TabsTrigger>
           </TabsList>
           <TabsContent value="threads" className="tab-content text-light-1">
-          {posts.threads.length >0 ? <ThreadsTab posts={posts.threads} userId={posts._id}/> : (
-            <div>No threads</div>
+          {posts && posts.threads.length >0 ? <ThreadsTab posts={posts.threads} userId={posts._id}/> : (
+            <div>No Thoughts</div>
           
           )}  
           </TabsContent>

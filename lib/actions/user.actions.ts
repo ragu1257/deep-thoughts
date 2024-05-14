@@ -5,22 +5,35 @@ import User from "../models/user.model"
 import { connectToDB } from "../mongoose"
 
 export async function updateUser(
-  {userId, username, name, email, phoneNumber, createdAtUser}: {userId: string, username: string, name: string, email: string, phoneNumber: string, createdAtUser: any}
+  {userId, username, name, email , createdAtUser}: {userId: string, username: string, name: string, email: string, createdAtUser: any}
 ): Promise<void> {
   connectToDB()
   
   try{
-     await User.findOneAndUpdate(
-      {id: userId},
-      {username: username.toLowerCase(),
-        name,
-        email,
-        onboarded: true,
-        phoneNumber,
-        createdAtUser
-      },
-      {upsert: true}
-    )
+    if (email) {
+      await User.findOneAndUpdate(
+        { id: userId },
+        {
+          username: username.toLowerCase(),
+          name,
+          email,
+          onboarded: true,
+          createdAtUser,
+        },
+        { upsert: true }
+      );
+    } else {
+      await User.findOneAndUpdate(
+        { id: userId },
+        {
+          username: username.toLowerCase(),
+          name,
+          onboarded: true,
+          createdAtUser,
+        },
+        { upsert: true }
+      );
+    }
     
   }
   catch(err){

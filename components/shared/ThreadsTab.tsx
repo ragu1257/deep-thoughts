@@ -17,7 +17,7 @@ const ThreadsTab = ({ posts, userId }: Props) => {
             key={thread._id}
           >
             <article className="flex w-full flex-row ">
-              <p className="grow"> {thread.text} </p>
+              <p className="grow pr-5"> {thread.text} </p>
               <ThreadDelete threadId={thread._id} userId={userId} />
             </article>
             <div className="text-light-1 flex w-full">

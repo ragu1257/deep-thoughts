@@ -11,22 +11,22 @@ import Image from "next/image";
 import { updateUser } from "@/lib/actions/user.actions";
 
 export default function Topbar({user}: {readonly user: any}) {
-  const submitInfo = async () => {
+  // const submitInfo = async () => {
     
-    await updateUser({
-      userId: user.id,
-      username: user.username,
-      name: user.firstName,
-      email: user.emailAddresses[0].emailAddress,
-      phoneNumber: user.phoneNumbers[0].phoneNumber,
-      createdAtUser: new Date(user.createdAt ).toLocaleDateString("en-US", {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      })
-    });
-  }
+  //   await updateUser({
+  //     userId: user.id,
+  //     username: user.username,
+  //     name: user.firstName,
+  //     email: user.emailAddresses[0] ? user.emailAddresses[0].emailAddress : false,
+  //     phoneNumber: user.phoneNumbers[0] ? user.phoneNumbers[0].phoneNumber : false,
+  //     createdAtUser: new Date(user.createdAt ).toLocaleDateString("en-US", {
+  //       weekday: "long",
+  //       year: "numeric",
+  //       month: "long",
+  //       day: "numeric",
+  //     })
+  //   });
+  // }
   return (
     <header className="bg-gray-800 text-white py-6">
 

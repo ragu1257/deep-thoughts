@@ -8,7 +8,7 @@ const Page = async () => {
   return (
     <div>
 
-      <ProfileHeader email={user?.emailAddresses[0].emailAddress ?? ""} name={user?.firstName ?? ""}  userName={user?.username ?? ""} id={user?.id ?? ""}/>
+      <ProfileHeader email={user?.emailAddresses[0] && user?.emailAddresses[0].emailAddress ?? ""} name={user?.firstName ?? ""}  userName={user?.username ?? ""} id={user?.id ?? ""}/>
     </div>
   );
 }
