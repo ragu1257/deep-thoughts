@@ -4,7 +4,7 @@ import { currentUser } from "@clerk/nextjs/server";
 
 const Page = async () => {  
   const user = await currentUser();
-  
+  if(!user) return <p className="text-light-1">Please Login to view profile</p>
   return (
     <div>
       <h1 className="head-text">Profile</h1>

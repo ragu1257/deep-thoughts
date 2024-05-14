@@ -7,10 +7,9 @@ export default async function Page() {
 
 
 
-  if(!user) return null
+  if(!user) return <p className="text-light-1">Please Login to create thread</p>
   
   let userInfo = await fetchUser(user.id)
-console.log("userInfo", userInfo);
 
   if(userInfo === null){
   await updateUser({
