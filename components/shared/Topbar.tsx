@@ -1,7 +1,6 @@
 "use client"
 
 import {
-  OrganizationSwitcher,
   SignInButton,
   SignOutButton,
   SignedIn,
@@ -49,19 +48,22 @@ export default function Topbar({user}: {readonly user: any}) {
               <SignInButton />
             </SignedOut>
             <SignedIn>
+              
               <SignOutButton>
                 <div className="flex cursor-pointer">
+                  
                   <Image
                     src="/assets/logout.svg"
                     alt="logout"
                     width={24}
                     height={24}
+                    className="mr-2"
                   />
+                  Logout
                 </div>
               </SignOutButton>
             </SignedIn>
           </div>
-          <OrganizationSwitcher />
         </div>
       </nav>
     </header>
