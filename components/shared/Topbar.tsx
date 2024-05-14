@@ -11,22 +11,7 @@ import Image from "next/image";
 import { updateUser } from "@/lib/actions/user.actions";
 
 export default function Topbar({user}: {readonly user: any}) {
-  // const submitInfo = async () => {
-    
-  //   await updateUser({
-  //     userId: user.id,
-  //     username: user.username,
-  //     name: user.firstName,
-  //     email: user.emailAddresses[0] ? user.emailAddresses[0].emailAddress : false,
-  //     phoneNumber: user.phoneNumbers[0] ? user.phoneNumbers[0].phoneNumber : false,
-  //     createdAtUser: new Date(user.createdAt ).toLocaleDateString("en-US", {
-  //       weekday: "long",
-  //       year: "numeric",
-  //       month: "long",
-  //       day: "numeric",
-  //     })
-  //   });
-  // }
+
   return (
     <header className="bg-gray-800 text-white py-6">
 
@@ -41,11 +26,6 @@ export default function Topbar({user}: {readonly user: any}) {
 
         </Link>
         <div className="flex items-center gap-1">
-          {/* <div>
-            <button onClick={submitInfo}>
-              Submit Info to DB
-            </button>
-          </div> */}
           <div className="bolck ">
             <SignedOut>
               <SignInButton />
